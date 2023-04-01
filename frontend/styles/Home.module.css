@@ -21,7 +21,8 @@
 }
 
 .worldDesc {
-  font-size: x-large;
+  font-weight: bold;
+  font-size: xx-large;
     margin: 0.3em;
 
 }
@@ -41,7 +42,7 @@
   border-radius: 20px;
   border: none;
   background: #ef875f;
-  font-size: xx-large;
+  font-size: x-large;
   font-weight: bold;
   cursor: pointer;
 }
