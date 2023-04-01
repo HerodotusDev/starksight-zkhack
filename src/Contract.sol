@@ -28,9 +28,10 @@ contract Contract {
 
     /// @param _worldId The WorldID instance that will verify the proofs
     /// @param _actionId The action ID for your application
-    constructor(IWorldID _worldId, string memory _actionId) {
+    constructor(IWorldID _worldId, string memory _actionId, string memory appId ) {
         worldId = _worldId;
-        actionId = abi.encodePacked(_actionId).hashToField();
+        // we recommend memoizing the appId part on the constructor to save gas
+        actionId = abi.encodePacked(abi.encodePacked(appId).hashToField(), _actionId).hashToField();
     }
 
     /// @param signal An arbitrary input from the user, usually the user's wallet address (check README for further details)
