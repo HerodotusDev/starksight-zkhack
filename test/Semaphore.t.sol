@@ -15,7 +15,7 @@ contract VerifyTest is Test {
         c = new Contract(IWorldID(address(c_semaphore)), "app_id", 123);
     }
 
-    function testVerify() public {
+    function testverify() public {
         c.verifyAndExecute(
             0x41cd2913EAC124b5cd8D6AA70bf0b303e0180872,
             21705359380887563070149446940526235604214635927514568554179739874068936581326,
