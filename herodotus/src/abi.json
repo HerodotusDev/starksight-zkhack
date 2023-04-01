@@ -1,0 +1,395 @@
+[
+    {
+        "members": [
+            {
+                "name": "word_1",
+                "offset": 0,
+                "type": "felt"
+            },
+            {
+                "name": "word_2",
+                "offset": 1,
+                "type": "felt"
+            },
+            {
+                "name": "word_3",
+                "offset": 2,
+                "type": "felt"
+            },
+            {
+                "name": "word_4",
+                "offset": 3,
+                "type": "felt"
+            }
+        ],
+        "name": "Keccak256Hash",
+        "size": 4,
+        "type": "struct"
+    },
+    {
+        "members": [
+            {
+                "name": "word_1",
+                "offset": 0,
+                "type": "felt"
+            },
+            {
+                "name": "word_2",
+                "offset": 1,
+                "type": "felt"
+            },
+            {
+                "name": "word_3",
+                "offset": 2,
+                "type": "felt"
+            }
+        ],
+        "name": "Address",
+        "size": 3,
+        "type": "struct"
+    },
+    {
+        "members": [
+            {
+                "name": "word_1",
+                "offset": 0,
+                "type": "felt"
+            },
+            {
+                "name": "word_2",
+                "offset": 1,
+                "type": "felt"
+            },
+            {
+                "name": "word_3",
+                "offset": 2,
+                "type": "felt"
+            },
+            {
+                "name": "word_4",
+                "offset": 3,
+                "type": "felt"
+            }
+        ],
+        "name": "StorageSlot",
+        "size": 4,
+        "type": "struct"
+    },
+    {
+        "members": [
+            {
+                "name": "low",
+                "offset": 0,
+                "type": "felt"
+            },
+            {
+                "name": "high",
+                "offset": 1,
+                "type": "felt"
+            }
+        ],
+        "name": "Uint256",
+        "size": 2,
+        "type": "struct"
+    },
+    {
+        "inputs": [],
+        "name": "get_l1_headers_store_addr",
+        "outputs": [
+            {
+                "name": "res",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "account_160",
+                "type": "felt"
+            },
+            {
+                "name": "block",
+                "type": "felt"
+            }
+        ],
+        "name": "get_verified_account_storage_hash",
+        "outputs": [
+            {
+                "name": "res",
+                "type": "Keccak256Hash"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "account_160",
+                "type": "felt"
+            },
+            {
+                "name": "block",
+                "type": "felt"
+            }
+        ],
+        "name": "get_verified_account_code_hash",
+        "outputs": [
+            {
+                "name": "res",
+                "type": "Keccak256Hash"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "account_160",
+                "type": "felt"
+            },
+            {
+                "name": "block",
+                "type": "felt"
+            }
+        ],
+        "name": "get_verified_account_balance",
+        "outputs": [
+            {
+                "name": "res",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "account_160",
+                "type": "felt"
+            },
+            {
+                "name": "block",
+                "type": "felt"
+            }
+        ],
+        "name": "get_verified_account_nonce",
+        "outputs": [
+            {
+                "name": "res",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "l1_headers_store_addr",
+                "type": "felt"
+            }
+        ],
+        "name": "constructor",
+        "outputs": [],
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+            {
+                "name": "options_set",
+                "type": "felt"
+            },
+            {
+                "name": "block_number",
+                "type": "felt"
+            },
+            {
+                "name": "account",
+                "type": "Address"
+            },
+            {
+                "name": "proof_sizes_bytes_len",
+                "type": "felt"
+            },
+            {
+                "name": "proof_sizes_bytes",
+                "type": "felt*"
+            },
+            {
+                "name": "proof_sizes_words_len",
+                "type": "felt"
+            },
+            {
+                "name": "proof_sizes_words",
+                "type": "felt*"
+            },
+            {
+                "name": "proofs_concat_len",
+                "type": "felt"
+            },
+            {
+                "name": "proofs_concat",
+                "type": "felt*"
+            },
+            {
+                "name": "block_proof_leaf_index",
+                "type": "felt"
+            },
+            {
+                "name": "block_proof_leaf_value",
+                "type": "felt"
+            },
+            {
+                "name": "block_proof_len",
+                "type": "felt"
+            },
+            {
+                "name": "block_proof",
+                "type": "felt*"
+            },
+            {
+                "name": "block_proof_peaks_len",
+                "type": "felt"
+            },
+            {
+                "name": "block_proof_peaks",
+                "type": "felt*"
+            },
+            {
+                "name": "block_header_rlp_len",
+                "type": "felt"
+            },
+            {
+                "name": "block_header_rlp",
+                "type": "felt*"
+            },
+            {
+                "name": "block_header_rlp_bytes_len",
+                "type": "felt"
+            },
+            {
+                "name": "inclusion_tx_hash",
+                "type": "felt"
+            },
+            {
+                "name": "mmr_pos",
+                "type": "felt"
+            }
+        ],
+        "name": "prove_account",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "block",
+                "type": "felt"
+            },
+            {
+                "name": "account_160",
+                "type": "felt"
+            },
+            {
+                "name": "slot",
+                "type": "StorageSlot"
+            },
+            {
+                "name": "proof_sizes_bytes_len",
+                "type": "felt"
+            },
+            {
+                "name": "proof_sizes_bytes",
+                "type": "felt*"
+            },
+            {
+                "name": "proof_sizes_words_len",
+                "type": "felt"
+            },
+            {
+                "name": "proof_sizes_words",
+                "type": "felt*"
+            },
+            {
+                "name": "proofs_concat_len",
+                "type": "felt"
+            },
+            {
+                "name": "proofs_concat",
+                "type": "felt*"
+            }
+        ],
+        "name": "get_storage",
+        "outputs": [
+            {
+                "name": "res_bytes_len",
+                "type": "felt"
+            },
+            {
+                "name": "res_len",
+                "type": "felt"
+            },
+            {
+                "name": "res",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "block",
+                "type": "felt"
+            },
+            {
+                "name": "account_160",
+                "type": "felt"
+            },
+            {
+                "name": "slot",
+                "type": "StorageSlot"
+            },
+            {
+                "name": "proof_sizes_bytes_len",
+                "type": "felt"
+            },
+            {
+                "name": "proof_sizes_bytes",
+                "type": "felt*"
+            },
+            {
+                "name": "proof_sizes_words_len",
+                "type": "felt"
+            },
+            {
+                "name": "proof_sizes_words",
+                "type": "felt*"
+            },
+            {
+                "name": "proofs_concat_len",
+                "type": "felt"
+            },
+            {
+                "name": "proofs_concat",
+                "type": "felt*"
+            }
+        ],
+        "name": "get_storage_uint",
+        "outputs": [
+            {
+                "name": "res",
+                "type": "Uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]

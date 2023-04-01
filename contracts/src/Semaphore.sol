@@ -10,6 +10,7 @@ import {IncrementalBinaryTree, IncrementalTreeData} from "@zk-kit/incremental-me
 /// @title Semaphore Group Manager
 /// @author Miguel Piedrafita
 /// @notice A simple implementation of a ZK-based identity group manager using Semaphore
+/// @notice Root verification removed for mocking
 contract Semaphore is IWorldID, SemaphoreCore, Verifier, SemaphoreGroups {
     using IncrementalBinaryTree for IncrementalTreeData;
 
@@ -175,6 +176,8 @@ contract Semaphore is IWorldID, SemaphoreCore, Verifier, SemaphoreGroups {
             [proof[6], proof[7]],
             publicSignals
         );
+
+        // Removed root verification for mocking
 
         // if (checkValidRoot(groupId, root)) {
         //     verifyProof(

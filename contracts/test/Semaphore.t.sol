@@ -3,19 +3,19 @@ pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
 import {ByteHasher} from "../src/helpers/ByteHasher.sol";
-import "../src/Contract.sol";
+import "../src/WorldIDVerifier.sol";
 import "../src/Semaphore.sol";
 
 contract VerifyTest is Test {
     using ByteHasher for bytes;
-    Contract public c;
+    WorldIDVerifier c;
 
     function setUp() public {
         Semaphore c_semaphore = new Semaphore();
-        c = new Contract(IWorldID(address(c_semaphore)), "app_id", 123);
+        c = new WorldIDVerifier(IWorldID(address(c_semaphore)), "app_id", 123);
     }
 
-    function testverify() public {
+    function testVerify() public {
         c.verifyAndExecute(
             0x41cd2913EAC124b5cd8D6AA70bf0b303e0180872,
             21705359380887563070149446940526235604214635927514568554179739874068936581326,

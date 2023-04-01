@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 import {ByteHasher} from "./helpers/ByteHasher.sol";
 import {IWorldID} from "./interfaces/IWorldID.sol";
 
-contract Contract {
+contract WorldIDVerifier {
     using ByteHasher for bytes;
 
     ///////////////////////////////////////////////////////////////////////////////
@@ -27,6 +27,7 @@ contract Contract {
     mapping(uint256 => bool) internal nullifierHashes;
 
     /// @param _worldId The WorldID instance that will verify the proofs
+    /// @param _appId The app ID for your application
     /// @param _actionId The action ID for your application
     constructor(IWorldID _worldId, string memory _appId, uint256 _actionId) {
         worldId = _worldId;
