@@ -18,7 +18,7 @@ export default function Evm() {
   const [wdcAddress, setwdcAddress] = useState();
   const [isConnected, setConnected] = useState(false); // Status check
   const [account, setAccount] = useState();
-  const [proofResult, setProofResult] = useState<object>();
+  const [proofResult, setProofResult] = useState<any>();
 
   const handleProof = useCallback((result: ISuccessResult) => {
     return new Promise<void>((resolve) => {
@@ -76,11 +76,11 @@ export default function Evm() {
     console.log("dsagewewaeg");
     await windowStarknet?.enable();
     console.log(windowStarknet, "dagewgwawegwegwegweagewgw");
-    setAccount(windowStarknet.account); // Set our account variable to windowStarknet.account (address, provider and the signer)
-    console.log(windowStarknet?.account);
-    const c_add = windowStarknet.selectedAddress as String;
-    setAddress(windowStarknet.selectedAddress);
-    setwdcAddress(c_add.slice(0, 2) + "0" + c_add.slice(2)); // Set our address variable to windowStarknet.selectedAddress
+    // setAccount(windowStarknet?.account); // Set our account variable to windowStarknet.account (address, provider and the signer)
+    // console.log(windowStarknet?.account);
+    const c_add = windowStarknet?.selectedAddress as String;
+    setAddress(windowStarknet?.selectedAddress);
+    // setwdcAddress(c_add.slice(0, 2) + "0" + c_add.slice(2)); // Set our address variable to windowStarknet.selectedAddress
     setConnected(true); // isConnected = true, the page will changed according to the boolean
     return windowStarknet;
   };
@@ -105,7 +105,10 @@ export default function Evm() {
               {" "}
               <IDKitWidget
                 action={solidityEncode(["uint256"], [123])}
-                signal={solidityEncode(["address"], [wdcAddress])}
+                signal={solidityEncode(
+                  ["address"],
+                  [0x41cd2913eac124b5cd8d6aa70bf0b303e0180872]
+                )}
                 onSuccess={onSuccess}
                 handleVerify={handleProof}
                 app_id="app_id"

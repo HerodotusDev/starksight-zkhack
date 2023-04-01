@@ -7,6 +7,13 @@
   min-height: 100vh;
 }
 
+.titleDesc {
+      display: flex;
+    justify-content: center;
+    padding: 2em;
+    font-size: xx-large;
+}
+
 .worldWrapper {
   display: flex;
     flex-direction: column;

@@ -45,11 +45,11 @@ export default function Home() {
     console.log("dsagewewaeg");
     await windowStarknet?.enable();
     console.log(windowStarknet, "dagewgwawegwegwegweagewgw");
-    setAccount(windowStarknet.account); // Set our account variable to windowStarknet.account (address, provider and the signer)
-    console.log(windowStarknet?.account);
-    const c_add = windowStarknet.selectedAddress as String;
-    setAddress(windowStarknet.selectedAddress);
-    setwdcAddress(c_add.slice(0, 2) + "0" + c_add.slice(2)); // Set our address variable to windowStarknet.selectedAddress
+    // setAccount(windowStarknet.account); // Set our account variable to windowStarknet.account (address, provider and the signer)
+    // console.log(windowStarknet?.account);
+    const c_add = windowStarknet?.selectedAddress as String;
+    setAddress(windowStarknet?.selectedAddress);
+    // setwdcAddress(c_add.slice(0, 2) + "0" + c_add.slice(2)); // Set our address variable to windowStarknet.selectedAddress
     setConnected(true); // isConnected = true, the page will changed according to the boolean
     return windowStarknet;
   };
@@ -62,19 +62,25 @@ export default function Home() {
   return (
     <>
       <div className={styles.container}>
+        <div className={styles.titleDesc}>
+          StarkSight ; verify your World ID👁️, ZK-Snark on Starknet✨
+        </div>
         <div
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            minHeight: "100vh",
+            minHeight: "60vh",
           }}>
           {isConnected ? (
             <>
               {" "}
               <IDKitWidget
                 action={solidityEncode(["uint256"], [123])}
-                signal={solidityEncode(["address"], [wdcAddress])}
+                signal={solidityEncode(
+                  ["address"],
+                  [0x41cd2913eac124b5cd8d6aa70bf0b303e0180872]
+                )}
                 onSuccess={onSuccess}
                 handleVerify={handleProof}
                 app_id="app_id"
