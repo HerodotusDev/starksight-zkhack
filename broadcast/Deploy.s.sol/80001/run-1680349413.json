@@ -1,0 +1,34 @@
+{
+  "transactions": [
+    {
+      "hash": "0xd15170c8db4cf8dab840ca1f3a0adfca230ecc3d140cf5c8fa877547dcf97852",
+      "transactionType": "CREATE",
+      "contractName": "Counter",
+      "contractAddress": "0x85484B484284B25da9Be12B4c542fF6C0B00BfF3",
+      "function": null,
+      "arguments": null,
+      "rpc": "https://rpc.ankr.com/polygon_mumbai",
+      "transaction": {
+        "type": "0x02",
+        "from": "0x5fa150de794266730d6c0349cf185c45d13432c3",
+        "gas": "0x21dee",
+        "value": "0x0",
+        "data": "0x608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea26469706673582212208fe2d9e04b045477f5760a998d5008e60f9cd79be7197e337e6e8084a1e3f7c664736f6c63430008110033",
+        "nonce": "0x2",
+        "accessList": []
+      },
+      "additionalContracts": []
+    }
+  ],
+  "receipts": [],
+  "libraries": [],
+  "pending": [
+    "0xd15170c8db4cf8dab840ca1f3a0adfca230ecc3d140cf5c8fa877547dcf97852"
+  ],
+  "path": "/Users/tiagofneto/Documents/Hackathons/worldcoin-temp/broadcast/Deploy.s.sol/80001/run-latest.json",
+  "returns": {},
+  "timestamp": 1680349413,
+  "chain": 80001,
+  "multi": false,
+  "commit": "4967bdf"
+}
