@@ -12,7 +12,7 @@ contract MyScript is Script {
         vm.startBroadcast(deployerPrivateKey);
         Semaphore c_semaphore = new Semaphore();
 
-        Contract c = new Contract(IWorldID(address(c_semaphore)), "my_action");
+        Contract c = new Contract(IWorldID(address(c_semaphore)), "app_id", 123);
         vm.stopBroadcast();
     }
 }
