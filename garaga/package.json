@@ -1,0 +1,11 @@
+{
+  "name": "garaga-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:keep-starknet-strange/garaga.git",
+  "author": "tiagofneto <tiagofneto29@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

@@ -1,0 +1,14 @@
+*.json
+!*_input.json
+!*package.json
+__pycache__
+venv
+node_modules/
+
+*profiling*
+*.o
+*.c
+*.so
+*.html
+tools/parser_go/main
+
