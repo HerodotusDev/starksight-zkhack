@@ -6,15 +6,15 @@
 
 ## About
 
-> Verify your World ID 👁️, ZK-Snark on Starknet ✨.
+> Verify your World ID 👁️, on Starknet ✨.
 
 ### What is StarkSight?
 
-Verify World ID proofs on Starknet using [Garaga](https://github.com/keep-starknet-strange/garaga) and Herodotus
+Verify [World ID](https://worldcoin.org/world-id) proofs on Starknet using [Garaga](https://github.com/keep-starknet-strange/garaga) and [Herodotus](https://www.herodotus.dev).
 
 ### Usecase
 
-As an example of how this can be used, the project has forked the Argent X wallet and added World ID verification logic, allowing users to check their World ID verification directly on the wallet
+As an example of how this can be used, we forked the Argent X wallet and added World ID verification logic, allowing users to check their World ID verification directly on the wallet
 
 ---
 
