@@ -7,6 +7,46 @@
   min-height: 100vh;
 }
 
+.titleDesc {
+      display: flex;
+    justify-content: center;
+    padding: 2em;
+    font-size: xx-large;
+}
+
+.worldWrapper {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.worldDesc {
+  font-weight: bold;
+  font-size: xx-large;
+    margin: 0.3em;
+
+}
+
+.worldIdVerification {
+    border: 2px solid white;
+    padding: 1em 2em;
+    background: black;
+    font-size: x-large;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.connectArgent {
+  display: flex;
+  padding: 1em 2em;
+  border-radius: 20px;
+  border: none;
+  background: #ef875f;
+  font-size: x-large;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .description {
   display: inherit;
   justify-content: inherit;

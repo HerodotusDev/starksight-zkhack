@@ -34,40 +34,9 @@ export default function Home() {
       };
       setProofResult(r);
 
-      //   await walletClient.writeContract(request)
-      // NOTE: Example of how to decline the verification request and show an error message to the user
-      console.log("handleproof");
+      //TODO : send proof to verifier cairo api
     });
   }, []);
-
-  const handleVerify = async () => {
-    const unpackedProof = defaultAbiCoder.decode(
-      ["uint256[8]"],
-      proofResult?.proof
-    )[0];
-
-    console.log(unpackedProof);
-    const copy: any[] = [];
-    for (let i = 0; i < 8; i++) {
-      copy.push(unpackedProof[i].toString());
-    }
-
-    console.log(copy, "hihi");
-    console.log(typeof address);
-    const { request } = await publicClient.simulateContract({
-      address: "0x3b10539df424521fc0aa2fd8a25e6147e4f03d94",
-      abi: contractContract.abi,
-      functionName: "verifyAndExecute",
-      args: [
-        wdcAddress,
-        hexToNumber(proofResult?.merkle_root),
-        hexToNumber(proofResult?.nullifier_hash),
-        copy,
-      ],
-    });
-
-    console.log(request);
-  };
 
   const handleArgent = async () => {
     // Using connect function from @argent/get-starknet to connect our Argent X wallet to our DAPP
@@ -76,11 +45,11 @@ export default function Home() {
     console.log("dsagewewaeg");
     await windowStarknet?.enable();
     console.log(windowStarknet, "dagewgwawegwegwegweagewgw");
-    setAccount(windowStarknet.account); // Set our account variable to windowStarknet.account (address, provider and the signer)
-    console.log(windowStarknet?.account);
-    const c_add = windowStarknet.selectedAddress as String;
-    setAddress(windowStarknet.selectedAddress);
-    setwdcAddress(c_add.slice(0, 2) + "0" + c_add.slice(2)); // Set our address variable to windowStarknet.selectedAddress
+    // setAccount(windowStarknet.account); // Set our account variable to windowStarknet.account (address, provider and the signer)
+    // console.log(windowStarknet?.account);
+    const c_add = windowStarknet?.selectedAddress as String;
+    setAddress(windowStarknet?.selectedAddress);
+    // setwdcAddress(c_add.slice(0, 2) + "0" + c_add.slice(2)); // Set our address variable to windowStarknet.selectedAddress
     setConnected(true); // isConnected = true, the page will changed according to the boolean
     return windowStarknet;
   };
@@ -93,30 +62,47 @@ export default function Home() {
   return (
     <>
       <div className={styles.container}>
+        <div className={styles.titleDesc}>
+          StarkSight ; verify your World ID👁️, ZK-Snark on Starknet✨
+        </div>
         <div
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            minHeight: "100vh",
+            minHeight: "60vh",
           }}>
           {isConnected ? (
             <>
               {" "}
               <IDKitWidget
                 action={solidityEncode(["uint256"], [123])}
-                signal={solidityEncode(["address"], [wdcAddress])}
+                signal={solidityEncode(
+                  ["address"],
+                  [0x41cd2913eac124b5cd8d6aa70bf0b303e0180872]
+                )}
                 onSuccess={onSuccess}
                 handleVerify={handleProof}
                 app_id="app_id"
                 // walletConnectProjectId="get_this_from_walletconnect_portal"
               >
-                {({ open }) => <button onClick={open}>Click me</button>}
+                {({ open }) => (
+                  <div className={styles.worldWrapper}>
+                    <div className={styles.worldDesc}>Your starknet wallet</div>
+                    <div> {address}</div>
+                    <button
+                      className={styles.worldIdVerification}
+                      onClick={open}>
+                      Claim Your World ID Verification
+                    </button>
+                  </div>
+                )}
               </IDKitWidget>
-              <button onClick={handleVerify}>verify argent</button>
             </>
           ) : (
-            <button onClick={handleArgent}>connect argent</button>
+            <button className={styles.connectArgent} onClick={handleArgent}>
+              Connect Argent X
+            </button>
           )}
         </div>
       </div>
