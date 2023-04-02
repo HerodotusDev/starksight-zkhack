@@ -1,12 +1,17 @@
 const express = require('express');
 const { spawn } = require('child_process');
 const app = express();
+const cors = require('cors');
 const port = 4000;
 
+app.use(cors({ origin: '*' }));
+
 app.get('/verify-proof', (req, res) => {
+  console.log(req.body);
   const timeoutMs = 5000; // 5 seconds
   const shell = spawn('/bin/bash', ['-i', '-c', 'source venv/bin/activate && make run-profile'], { stdio: 'inherit' });
   let hasTimedOut = false;
+
 
   const timeout = setTimeout(() => {
     hasTimedOut = true;
