@@ -21,3 +21,6 @@ As an example of how this can be used, the project has forked the Argent X walle
 🖥️ Argent-X-WorldID Extension: <https://github.com/HerodotusDev/argent-x-worldcoin>
 
 ---
+
+## Architecture
+<img src="docs/images/architecture.png">
