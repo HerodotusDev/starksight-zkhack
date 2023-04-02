@@ -1,12 +1,20 @@
 const express = require('express');
 const { spawn } = require('child_process');
+const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
 const port = 4000;
 
 app.use(cors({ origin: '*' }));
 
-app.get('/verify-proof', (req, res) => {
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.post('/verify-proof', (req, res) => {
+  console.log("-------------------")
+  console.log("Skipping Herodotus API call, using mocked root as input");
+  console.log("-------------------")
+
   console.log(req.body);
   const timeoutMs = 5000; // 5 seconds
   const shell = spawn('/bin/bash', ['-i', '-c', 'source venv/bin/activate && make run-profile'], { stdio: 'inherit' });
