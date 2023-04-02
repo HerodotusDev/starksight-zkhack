@@ -107,7 +107,7 @@ export default function Evm() {
                 action={solidityEncode(["uint256"], [123])}
                 signal={solidityEncode(
                   ["address"],
-                  [0x41cd2913eac124b5cd8d6aa70bf0b303e0180872]
+                  ["0x41cd2913eac124b5cd8d6aa70bf0b303e0180872"]
                 )}
                 onSuccess={onSuccess}
                 handleVerify={handleProof}

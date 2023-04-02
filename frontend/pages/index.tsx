@@ -10,6 +10,7 @@ import { publicClient } from "@/shared/client";
 import { contractContract } from "@/shared/abis/contractContract";
 import { defaultAbiCoder } from "ethers/lib/utils";
 import { hexToNumber } from "viem";
+import axios from "axios";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,18 @@ export default function Home() {
   const [wdcAddress, setwdcAddress] = useState();
   const [isConnected, setConnected] = useState(false); // Status check
   const [account, setAccount] = useState();
+  const [isSuccess, setIsSuccess] = useState(false);
   const [proofResult, setProofResult] = useState<object>();
+
+  const starknetVerification = async (result: any) => {
+    console.log(result);
+    const res = await axios.get(
+      "http://192.168.1.110:4000/verify-proof",
+      result
+    );
+    console.log(res);
+    return res.status;
+  };
 
   const handleProof = useCallback((result: ISuccessResult) => {
     return new Promise<void>((resolve) => {
@@ -54,9 +66,14 @@ export default function Home() {
     return windowStarknet;
   };
 
-  const onSuccess = (result: ISuccessResult) => {
+  const onSuccess = async (result: ISuccessResult) => {
     console.log(result);
     console.log("onsuccess");
+    const status = await starknetVerification(result);
+    if (status == 200) {
+      console.log("success");
+      setIsSuccess(true);
+    }
   };
 
   return (
@@ -74,30 +91,35 @@ export default function Home() {
           }}>
           {isConnected ? (
             <>
-              {" "}
-              <IDKitWidget
-                action={solidityEncode(["uint256"], [123])}
-                signal={solidityEncode(
-                  ["address"],
-                  [0x41cd2913eac124b5cd8d6aa70bf0b303e0180872]
-                )}
-                onSuccess={onSuccess}
-                handleVerify={handleProof}
-                app_id="app_id"
-                // walletConnectProjectId="get_this_from_walletconnect_portal"
-              >
-                {({ open }) => (
-                  <div className={styles.worldWrapper}>
-                    <div className={styles.worldDesc}>Your starknet wallet</div>
-                    <div> {address}</div>
-                    <button
-                      className={styles.worldIdVerification}
-                      onClick={open}>
-                      Claim Your World ID Verification
-                    </button>
-                  </div>
-                )}
-              </IDKitWidget>
+              {isSuccess ? (
+                <div>success</div>
+              ) : (
+                <IDKitWidget
+                  action={solidityEncode(["uint256"], [123])}
+                  signal={solidityEncode(
+                    ["address"],
+                    ["0x41cd2913eac124b5cd8d6aa70bf0b303e0180872"]
+                  )}
+                  onSuccess={onSuccess}
+                  handleVerify={handleProof}
+                  app_id="app_id"
+                  // walletConnectProjectId="get_this_from_walletconnect_portal"
+                >
+                  {({ open }) => (
+                    <div className={styles.worldWrapper}>
+                      <div className={styles.worldDesc}>
+                        Your starknet wallet
+                      </div>
+                      <div> {address}</div>
+                      <button
+                        className={styles.worldIdVerification}
+                        onClick={open}>
+                        Claim Your World ID Verification
+                      </button>
+                    </div>
+                  )}
+                </IDKitWidget>
+              )}
             </>
           ) : (
             <button className={styles.connectArgent} onClick={handleArgent}>
